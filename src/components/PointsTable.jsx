@@ -1,0 +1,93 @@
+import React from "react";
+
+function PointsTable() {
+  return (
+    <div>
+      <table className="table-auto border-separate border-spacing-y-2 border-spacing-x-1.5">
+        <tr className="font-bold ">
+          <td>Team</td>
+          <td>M</td>
+          <td>W</td>
+          <td>L</td>
+          <td>T</td>
+          <td>NR</td>
+          <td>Points</td>
+        </tr>
+        <tr>
+          <td>ZS</td>
+          <td>4</td>
+          <td>3</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>MS</td>
+          <td>4</td>
+          <td>3</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>BXI</td>
+          <td>4</td>
+          <td>2</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>SMXI</td>
+          <td>4</td>
+          <td>2</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>MM</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>MW</td>
+          <td>3</td>
+          <td>1</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>RSXI</td>
+          <td>4</td>
+          <td>3</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>MSK</td>
+          <td>4</td>
+          <td>1</td>
+          <td>3</td>
+          <td>0</td>
+          <td>0</td>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+  );
+}
+
+export default PointsTable;
