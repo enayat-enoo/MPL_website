@@ -1,4 +1,4 @@
-import React from "react";
+
 import { NavLink } from "react-router-dom";
 import FixtureCard from "./components/FixtureCard";
 import PointsTable from "./components/PointsTable";
@@ -7,7 +7,7 @@ function MplHomePage() {
     <>
       <div className="flex flex-wrap w-full gap-1 justify-center ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-80">
-            <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
+            <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2 text-center">
               Participating Teams
             </h2>
           <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium text-center">
@@ -89,7 +89,7 @@ function MplHomePage() {
         </div>
 
         <div className="rounded-lg bg-gradient-to-br from-purple-100 to-purple-200 p-4 shadow-xl w-80">
-          <h2 className="text-xl font-bold text-purple-800 mb-3 border-b border-purple-400 pb-2">
+          <h2 className="text-xl font-bold text-purple-800 mb-3 border-b border-purple-400 pb-2 text-center">
             Points Table
           </h2>
           <PointsTable />
