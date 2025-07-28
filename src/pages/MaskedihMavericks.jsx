@@ -18,8 +18,8 @@ const players = [
 
 function MaskedihMavericks() {
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 shadow-md shadow-cyan-300 p-2 rounded">
+    <div className="p-4 bg-blue-50">
+      <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         Maskedih Mavericks
       </h1>
       <div className="flex flex-wrap justify-center gap-6">
