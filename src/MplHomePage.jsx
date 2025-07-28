@@ -6,9 +6,11 @@ function MplHomePage() {
     <>
       <div className="flex flex-wrap w-full gap-1 ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-60">
+            <a href="https://cricheroes.com/tournament/1519676/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/teams" target="_blank">
           <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
             Participating Teams
           </h2>
+          </a>
           <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium">
             {[
               "Maskedih Super Kings",
@@ -35,11 +37,11 @@ function MplHomePage() {
             Upcoming Fixtures
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <FixtureCard team={"Zulfiqar Strikers"} opponent={"Badshah XI"} />
+            <FixtureCard team={"Maskedih Super Kings"} opponent={"Maskedih Mavericks"} date={"30 July 2025"} link={"https://cricheroes.com/scorecard/18219817/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-super-kings-vs-maskedih-mavericks/upcoming"}/>
             <br />
-            <FixtureCard team={"Maskedih Warriors"} opponent={"RSII XI"}/>
+            <FixtureCard team={"Maskedih Warriors"} opponent={"RSII XI"} date={"30 July 2025"} link={"https://cricheroes.com/scorecard/18219818/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-warriors-vs-rsi-xi/upcoming"}/>
             <br />
-            <FixtureCard team={"Maskedih Mavericks"} opponent={"Samurai XI"}/>
+            <FixtureCard team={"Zulfiqar Strikers"} opponent={"Badshah XI"} date={"30 July 2025"} link={"https://cricheroes.com/scorecard/18219816/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/zulfiqar-strikers-vs-baadshah-xi/live"}/>
           </div>
         </div>
 
