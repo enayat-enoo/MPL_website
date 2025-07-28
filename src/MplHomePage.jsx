@@ -6,7 +6,7 @@ function MplHomePage() {
   return (
     <>
       <div className="flex flex-wrap w-full gap-1 justify-center ">
-        <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-60">
+        <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-80">
             <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
               Participating Teams
             </h2>
@@ -88,7 +88,7 @@ function MplHomePage() {
           </div>
         </div>
 
-        <div className="rounded-lg bg-gradient-to-br from-purple-100 to-purple-200 p-4 shadow-xl w-60">
+        <div className="rounded-lg bg-gradient-to-br from-purple-100 to-purple-200 p-4 shadow-xl w-80">
           <h2 className="text-xl font-bold text-purple-800 mb-3 border-b border-purple-400 pb-2">
             Points Table
           </h2>
