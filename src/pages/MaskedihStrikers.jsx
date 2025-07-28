@@ -22,7 +22,7 @@ function MaskedihStrikers() {
   return (
     <div className="p-4">
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 shadow-md shadow-cyan-300 p-2 rounded">
-        Zulfiqar Strikers
+        Maskedih Strikers
       </h1>
       <div className="flex flex-wrap justify-center gap-6">
         {players.map((player, index) => (
