@@ -3,7 +3,7 @@ import React from "react";
 function PointsTable() {
   return (
     <div>
-      <table className="table-auto border-separate border-spacing-y-2 border-spacing-x-1.5">
+      <table className="table-auto border-separate border-spacing-y-2 border-spacing-x-1.5 text-center">
         <tr className="font-bold ">
           <td>Team</td>
           <td>M</td>

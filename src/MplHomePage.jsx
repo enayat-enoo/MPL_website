@@ -10,7 +10,7 @@ function MplHomePage() {
             <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
               Participating Teams
             </h2>
-          <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium">
+          <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium text-center">
             <NavLink to='maskedihsuperkings'>
           <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
             Maskedih Super Kings
