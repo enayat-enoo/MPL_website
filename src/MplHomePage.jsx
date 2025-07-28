@@ -7,14 +7,9 @@ function MplHomePage() {
     <>
       <div className="flex flex-wrap w-full gap-1 ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-60">
-          <a
-            href="https://cricheroes.com/tournament/1519676/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/teams"
-            target="_blank"
-          >
             <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
               Participating Teams
             </h2>
-          </a>
           <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium">
             <NavLink to='maskedihsuperkings'>
           <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
