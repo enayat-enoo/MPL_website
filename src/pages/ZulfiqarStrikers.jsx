@@ -41,6 +41,12 @@ function ZulfiqarStrikers() {
           </div>
         ))}
       </div>
+       <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 4</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 3</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 6</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 1</div>
+      </div>
     </div>
   );
 }

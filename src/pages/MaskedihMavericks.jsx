@@ -39,6 +39,12 @@ function MaskedihMavericks() {
           </div>
         ))}
       </div>
+       <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 3</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 2</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 4</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 5</div>
+      </div>
     </div>
   );
 }

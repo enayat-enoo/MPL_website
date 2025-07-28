@@ -21,8 +21,8 @@ const players = [
 
 function BadshahXI() {
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 shadow-md shadow-cyan-300 p-2 rounded">
+    <div className="p-4 bg-blue-50">
+      <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         Badshah XI
       </h1>
       <div className="flex flex-wrap justify-center gap-6">
@@ -41,6 +41,12 @@ function BadshahXI() {
             </h3>
           </div>
         ))}
+      </div>
+      <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 4</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 2</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 4</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 3</div>
       </div>
     </div>
   );

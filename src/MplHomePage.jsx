@@ -5,7 +5,7 @@ import PointsTable from "./components/PointsTable";
 function MplHomePage() {
   return (
     <>
-      <div className="flex flex-wrap w-full gap-1 ">
+      <div className="flex flex-wrap w-full gap-1 justify-center ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-60">
             <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
               Participating Teams
