@@ -55,7 +55,7 @@ function MplHomePage() {
         </div>
 
         <div className="flex-1 bg-gradient-to-br from-blue-50 to-white p-4 rounded-lg shadow-xl mx-2">
-          <h2 className="text-xl font-bold text-blue-800 mb-3 border-b border-blue-400 pb-2">
+          <h2 className="text-xl font-bold text-blue-800 mb-3 border-b border-blue-400 pb-2 text-center">
             Upcoming Fixtures
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
