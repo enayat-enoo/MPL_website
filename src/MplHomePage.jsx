@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import FixtureCard from "./components/FixtureCard";
 import PointsTable from "./components/PointsTable";
 function MplHomePage() {
@@ -6,29 +7,55 @@ function MplHomePage() {
     <>
       <div className="flex flex-wrap w-full gap-1 ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-60">
-            <a href="https://cricheroes.com/tournament/1519676/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/teams" target="_blank">
-          <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
-            Participating Teams
-          </h2>
+          <a
+            href="https://cricheroes.com/tournament/1519676/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/teams"
+            target="_blank"
+          >
+            <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2">
+              Participating Teams
+            </h2>
           </a>
           <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium">
-            {[
-              "Maskedih Super Kings",
-              "Maskedih Strikers",
-              "Maskedih Mavericks",
-              "Maskedih Warriors",
-              "Zulfiqar Strikers",
-              "Badshah XI",
-              "Samurai XI",
-              "RSII XI",
-            ].map((team, i) => (
-              <li
-                key={i}
-                className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm"
-              >
-                {team}
-              </li>
-            ))}
+            <NavLink to='maskedihsuperkings'>
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Maskedih Super Kings
+          </li>
+          </NavLink>
+          <NavLink to="maskedihstrikers">
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Maskedih Strikers
+          </li>
+          </NavLink>
+          <NavLink to="maskedihmavericks">
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Maskedih Mavericks
+          </li>
+          </NavLink>
+          <NavLink to="maskedihwarriors">
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Maskedih Warriors
+          </li>
+          </NavLink>
+          <NavLink to="zulfiqarstrikers">
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Zulfiqar Strikers
+          </li>
+          </NavLink>
+          <NavLink to="samuraixi">
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Samurai XI
+          </li>
+          </NavLink>
+          <NavLink to='badshahxi'>
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            Badshah XI
+          </li>
+          </NavLink>
+          <NavLink to='rsiixi'>
+          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+            RSII XI
+          </li>
+          </NavLink>
           </ol>
         </div>
 
@@ -37,11 +64,32 @@ function MplHomePage() {
             Upcoming Fixtures
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <FixtureCard team={"Maskedih Super Kings"} opponent={"Maskedih Mavericks"} date={"30 July 2025"} link={"https://cricheroes.com/scorecard/18219817/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-super-kings-vs-maskedih-mavericks/upcoming"}/>
+            <FixtureCard
+              team={"Maskedih Super Kings"}
+              opponent={"Maskedih Mavericks"}
+              date={"30 July 2025"}
+              link={
+                "https://cricheroes.com/scorecard/18219817/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-super-kings-vs-maskedih-mavericks/upcoming"
+              }
+            />
             <br />
-            <FixtureCard team={"Maskedih Warriors"} opponent={"RSII XI"} date={"30 July 2025"} link={"https://cricheroes.com/scorecard/18219818/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-warriors-vs-rsi-xi/upcoming"}/>
+            <FixtureCard
+              team={"Maskedih Warriors"}
+              opponent={"RSII XI"}
+              date={"30 July 2025"}
+              link={
+                "https://cricheroes.com/scorecard/18219818/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-warriors-vs-rsi-xi/upcoming"
+              }
+            />
             <br />
-            <FixtureCard team={"Zulfiqar Strikers"} opponent={"Badshah XI"} date={"30 July 2025"} link={"https://cricheroes.com/scorecard/18219816/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/zulfiqar-strikers-vs-baadshah-xi/live"}/>
+            <FixtureCard
+              team={"Zulfiqar Strikers"}
+              opponent={"Badshah XI"}
+              date={"30 July 2025"}
+              link={
+                "https://cricheroes.com/scorecard/18219816/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/zulfiqar-strikers-vs-baadshah-xi/live"
+              }
+            />
           </div>
         </div>
 
