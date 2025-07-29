@@ -21,7 +21,7 @@ const players = [
 function ZulfiqarStrikers() {
   return (
     <div className="p-4 bg-white">
-      <img src="./public/assets/zulfiqarstrikers.png" alt="" className="h-20 mx-auto rounded-full" />
+      <img src="./assets/zulfiqarstrikers.png" alt="" className="h-20 mx-auto rounded-full" />
       <h1 className="text-3xl font-bold text-center text-green-600 mb-6 p-2 rounded font-mono">
         Zulfiqar Strikers
       </h1>

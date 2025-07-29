@@ -24,7 +24,7 @@ const players = [
 function MaskedihWarriors() {
   return (
     <div className="p-4 bg-white">
-       <img src="./public/assets/maskedihwarriors.jpg" alt="" className="h-20 mx-auto rounded-full" />
+       <img src="./assets/maskedihwarriors.jpg" alt="" className="h-20 mx-auto rounded-full" />
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6  p-2 rounded">
         Maskedih Warriors
       </h1>
