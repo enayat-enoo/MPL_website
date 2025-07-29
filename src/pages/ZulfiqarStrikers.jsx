@@ -1,4 +1,5 @@
 import React from "react";
+import Navigations from "../components/Navigations";
 
 const players = [
   { name: "Tanweer Alam", image: "/images.jpg" },
@@ -21,6 +22,7 @@ const players = [
 function ZulfiqarStrikers() {
   return (
     <div className="p-4 bg-white">
+      <Navigations />
       <img src="./assets/zulfiqarstrikers.png" alt="" className="h-20 mx-auto rounded-full" />
       <h1 className="text-3xl font-bold text-center text-green-600 mb-6 p-2 rounded font-mono">
         Zulfiqar Strikers

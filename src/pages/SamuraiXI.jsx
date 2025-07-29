@@ -1,4 +1,5 @@
 import React from "react";
+import Navigations from "../components/Navigations";
 
 const players = [
   { name: "Aamir Sohail", image: "/images.jpg" },
@@ -21,6 +22,7 @@ const players = [
 function SamuraiXI() {
   return (
     <div className="p-4 bg-white">
+      <Navigations/>
        <img src="./assets/samurai.jpg" alt="" className="h-20 mx-auto rounded-full" />
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         Samurai XI

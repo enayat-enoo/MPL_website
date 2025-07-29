@@ -1,4 +1,5 @@
 import React from "react";
+import Navigations from "../components/Navigations";
 
 const players = [
   { name: "Abdul Matin", image: "/images.jpg" },
@@ -19,6 +20,7 @@ const players = [
 function MaskedihMavericks() {
   return (
     <div className="p-4 bg-white">
+      <Navigations />
        <img src="./assets/maskedihmavericks.jpeg" alt="" className="h-20 mx-auto rounded-full" />
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         Maskedih Mavericks
