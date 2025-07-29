@@ -20,10 +20,18 @@ const players = [
 
 function MaskedihSuperKings() {
   return (
-    <div className="p-4 bg-blue-50">
+    <div className="p-4 bg-white">
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         Maskedih Super Kings
       </h1>
+      <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 4</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 1</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 2</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 8</div>
+      </div>
+      <h2 className="text-center text-2xl font-bold text-blue-400 font-serif">Squad</h2>
+      <br />
       <div className="flex flex-wrap justify-center gap-6">
         {players.map((player, index) => (
           <div
@@ -41,12 +49,7 @@ function MaskedihSuperKings() {
           </div>
         ))}
       </div>
-       <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 4</div>
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 1</div>
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 2</div>
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 8</div>
-      </div>
+       
     </div>
   );
 }

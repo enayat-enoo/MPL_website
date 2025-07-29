@@ -20,10 +20,19 @@ const players = [
 
 function RsiiXI() {
   return (
-    <div className="p-4 bg-blue-50">
+    <div className="p-4 bg-white">
+      <img src="./src/assets/rsxii.jpg" alt="" className="h-20 mx-auto rounded-full" />
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         RSII XI
       </h1>
+      <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 1</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 2</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 1</div>
+        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 7</div>
+      </div>
+      <h2 className="text-center text-2xl font-bold text-blue-400 font-serif">Squad</h2>
+      <br />
       <div className="flex flex-wrap justify-center gap-6">
         {players.map((player, index) => (
           <div
@@ -41,12 +50,7 @@ function RsiiXI() {
           </div>
         ))}
       </div>
-       <div className=" p-2 m-2 flex items-center flex-wrap justify-between">
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Played : 1</div>
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Matches Won : 2</div>
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Total Points : 1</div>
-        <div className="rounded-md p-2 shadow-md shadow-gray-500">Position in Points Table: 7</div>
-      </div>
+       
     </div>
   );
 }
