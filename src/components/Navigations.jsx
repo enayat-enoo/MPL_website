@@ -6,7 +6,7 @@ function Navigations() {
       <h1 className="text-3xl font-bold text-center text-cyan-500 mb-6 p-2 rounded">
         Navigations
       </h1>
-      <ol className="flex justify-evenly border  border-cyan-600 rounded-md flex-wrap align-center">
+      <ol className="flex justify-evenly items-center bg-orange-100 border rounded-md flex-wrap align-center">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -18,7 +18,7 @@ function Navigations() {
         <NavLink
           to="/badshahXI"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Badshah XI</li>
@@ -26,7 +26,7 @@ function Navigations() {
         <NavLink
           to="/zulfiqarstrikers"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Zulfiqar Strikers</li>
@@ -34,7 +34,7 @@ function Navigations() {
         <NavLink
           to="/maskedihsuperkings"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Maskedih Super Kings</li>
@@ -42,7 +42,7 @@ function Navigations() {
         <NavLink
           to="/maskedihmavericks"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Maskedih Mavericks</li>
@@ -50,7 +50,7 @@ function Navigations() {
         <NavLink
           to="/maskedihwarriors"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Maskedih Warriors</li>
@@ -58,7 +58,7 @@ function Navigations() {
         <NavLink
           to="/samuraiXI"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Samurai XI</li>
@@ -66,7 +66,7 @@ function Navigations() {
         <NavLink
           to="/maskedihstrikers"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">Maskedih Strikers</li>
@@ -74,7 +74,7 @@ function Navigations() {
         <NavLink
           to="/rsiiXI"
           className={({ isActive }) =>
-            isActive ? "bg-red-300 rounded-md" : ""
+            isActive ? "bg-red-300 rounded-md shadow-md shadow-gray-500" : ""
           }
         >
           <li className="text-center">RSIIXI</li>
