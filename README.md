@@ -6,4 +6,4 @@ This project backend is deployed on Render’s free tier. Since the server goes 
 
 Check out the live frontend: [MPL Website](https://mpl-website.vercel.app)
 
-Backend API (hosted on Render): [MPL API](https://your-backend-url.onrender.com)
+Backend API (hosted on Render): [MPL API](https://mpl-backend-ct21.onrender.com)
