@@ -1,56 +1,32 @@
-
 import { NavLink } from "react-router-dom";
 import FixtureCard from "./components/FixtureCard";
 import PointsTable from "./components/PointsTable";
+import { useState } from "react";
+import { useEffect } from "react";
+
 function MplHomePage() {
+  const [teams,setTeams]=useState([]);
+  useEffect(()=>{
+    fetch('https://mpl-backend-ct21.onrender.com')
+    .then(res=>res.json())
+    .then(data=>setTeams(data))
+  },[])
+
   return (
     <>
       <div className="flex flex-wrap w-full gap-1 justify-center ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-80">
-            <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2 text-center">
-              Participating Teams
-            </h2>
+          <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2 text-center">
+            Participating Teams
+          </h2>
           <ol className="space-y-2 text-left list-decimal list-inside text-sm font-medium text-center">
-            <NavLink to='maskedihsuperkings'>
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Maskedih Super Kings
-          </li>
-          </NavLink>
-          <NavLink to="maskedihstrikers">
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Maskedih Strikers
-          </li>
-          </NavLink>
-          <NavLink to="maskedihmavericks">
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Maskedih Mavericks
-          </li>
-          </NavLink>
-          <NavLink to="maskedihwarriors">
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Maskedih Warriors
-          </li>
-          </NavLink>
-          <NavLink to="zulfiqarstrikers">
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Zulfiqar Strikers
-          </li>
-          </NavLink>
-          <NavLink to="samuraixi">
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Samurai XI
-          </li>
-          </NavLink>
-          <NavLink to='badshahxi'>
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            Badshah XI
-          </li>
-          </NavLink>
-          <NavLink to='rsiixi'>
-          <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
-            RSII XI
-          </li>
-          </NavLink>
+            {teams.map((team) => (
+              <NavLink to={`/team/${team.id}`} key={team.id}>
+                <li className="bg-white rounded px-2 py-1 hover:bg-green-300 hover:text-white transition shadow-sm">
+                  {team.name}
+                </li>
+              </NavLink>
+            ))}
           </ol>
         </div>
 
