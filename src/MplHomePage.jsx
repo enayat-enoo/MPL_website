@@ -5,12 +5,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function MplHomePage() {
-  const [teams,setTeams]=useState([]);
-  useEffect(()=>{
-    fetch('https://mpl-backend-ct21.onrender.com')
-    .then(res=>res.json())
-    .then(data=>setTeams(data))
-  },[])
+  const [teams, setTeams] = useState([]);
+  useEffect(() => {
+    fetch("https://mpl-backend-ct21.onrender.com")
+      .then((res) => res.json())
+      .then((data) => setTeams(data));
+  }, []);
 
   return (
     <>
@@ -38,7 +38,7 @@ function MplHomePage() {
             <FixtureCard
               team={"Maskedih Super Kings"}
               opponent={"Maskedih Mavericks"}
-              date={"30 July 2025"}
+              date={"15 Aug 2025"}
               link={
                 "https://cricheroes.com/scorecard/18219817/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-super-kings-vs-maskedih-mavericks/upcoming"
               }
@@ -47,7 +47,7 @@ function MplHomePage() {
             <FixtureCard
               team={"Maskedih Warriors"}
               opponent={"RSII XI"}
-              date={"30 July 2025"}
+              date={"15 Aug 2025"}
               link={
                 "https://cricheroes.com/scorecard/18219818/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-warriors-vs-rsi-xi/upcoming"
               }
@@ -56,7 +56,7 @@ function MplHomePage() {
             <FixtureCard
               team={"Zulfiqar Strikers"}
               opponent={"Badshah XI"}
-              date={"30 July 2025"}
+              date={"15 Aug 2025"}
               link={
                 "https://cricheroes.com/scorecard/18219816/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/zulfiqar-strikers-vs-baadshah-xi/live"
               }
@@ -71,6 +71,13 @@ function MplHomePage() {
           <PointsTable />
         </div>
       </div>
+      <NavLink
+        to="/registration"
+        className="inline-block w-full text-center bg-cyan-500 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+      >
+        Get Yourself registered for the upcoming season!!!
+      </NavLink>
+
       <div className="mt-4 bg-gradient-to-r from-yellow-200 via-yellow-100 to-yellow-200 text-yellow-900 py-3 px-4 rounded-md shadow text-center text-base font-semibold tracking-wide">
         📢 Stay tuned! Match results & announcements will appear here.
       </div>

@@ -1,28 +1,31 @@
-import MPLHomePage from './MplHomePage'
-import Teams from './components/Teams'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Header from './Header'
-import './App.css'
+import MPLHomePage from "./MplHomePage";
+import Teams from "./components/Teams";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RegistrationForm from "./components/RegistrationForm";
+import Header from "./Header";
+import "./App.css";
 
-
-let router=createBrowserRouter([
+let router = createBrowserRouter([
   {
-    path : '/',
-    element : <MPLHomePage/>
+    path: "/",
+    element: <MPLHomePage />,
   },
   {
-  path: "/team/:teamId",
-  element: <Teams />
-}
+    path: "/team/:teamId",
+    element: <Teams />,
+  },
+  {
+    path: "/registration",
+    element: <RegistrationForm />,
+  },
 ]);
 function App() {
-
   return (
     <>
-    <Header/>
-    <RouterProvider router={router}/>
+      <Header />
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
