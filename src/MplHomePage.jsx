@@ -3,9 +3,28 @@ import FixtureCard from "./components/FixtureCard";
 import PointsTable from "./components/PointsTable";
 import { useState } from "react";
 import { useEffect } from "react";
+import UserLogin from "./components/UserLogin";
+import Logout from "./components/Logout";
 
 function MplHomePage() {
   const [teams, setTeams] = useState([]);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    fetch("https://mpl-backend-ct21.onrender.com/auth/check", {
+      credentials: "include",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setUserLoggedIn(data.login);
+        setUserName(data.username);
+      })
+      .catch((error) => console.error("Error:", error));
+  }, []);
+
   useEffect(() => {
     fetch("https://mpl-backend-ct21.onrender.com")
       .then((res) => res.json())
@@ -14,6 +33,12 @@ function MplHomePage() {
 
   return (
     <>
+      {userLoggedIn && (
+        <h2 className="text-center text-green-600 text-2xl font-semibold">
+          👋 Welcome, {userName}!
+        </h2>
+      )}
+
       <div className="flex flex-wrap w-full gap-1 justify-center ">
         <div className="rounded-lg bg-gradient-to-br from-green-200 to-green-100 p-4 shadow-xl w-80">
           <h2 className="text-xl font-bold text-green-800 mb-3 border-b border-green-500 pb-2 text-center">
@@ -36,27 +61,27 @@ function MplHomePage() {
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <FixtureCard
-              team={"Maskedih Super Kings"}
-              opponent={"Maskedih Mavericks"}
-              date={"15 Aug 2025"}
+              team={"Team A"}
+              opponent={"Team B"}
+              date={""}
               link={
                 "https://cricheroes.com/scorecard/18219817/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-super-kings-vs-maskedih-mavericks/upcoming"
               }
             />
             <br />
             <FixtureCard
-              team={"Maskedih Warriors"}
-              opponent={"RSII XI"}
-              date={"15 Aug 2025"}
+              team={"Team C"}
+              opponent={"Team D"}
+              date={""}
               link={
                 "https://cricheroes.com/scorecard/18219818/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-warriors-vs-rsi-xi/upcoming"
               }
             />
             <br />
             <FixtureCard
-              team={"Zulfiqar Strikers"}
-              opponent={"Badshah XI"}
-              date={"15 Aug 2025"}
+              team={"Team E"}
+              opponent={"Team F"}
+              date={""}
               link={
                 "https://cricheroes.com/scorecard/18219816/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/zulfiqar-strikers-vs-baadshah-xi/live"
               }
@@ -71,9 +96,14 @@ function MplHomePage() {
           <PointsTable />
         </div>
       </div>
+      {userLoggedIn ? (
+        <Logout setUserLoggedIn={setUserLoggedIn} />
+      ) : (
+        <UserLogin />
+      )}
       <NavLink
         to="/registration"
-        className="inline-block w-full text-center bg-cyan-500 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+        className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
       >
         Get Yourself registered for the upcoming season!!!
       </NavLink>

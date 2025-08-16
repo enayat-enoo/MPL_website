@@ -4,6 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RegistrationForm from "./components/RegistrationForm";
 import Header from "./Header";
 import "./App.css";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
+import ProtectedRoute from "../ProtectedRoute";
+
+
 
 let router = createBrowserRouter([
   {
@@ -16,8 +21,18 @@ let router = createBrowserRouter([
   },
   {
     path: "/registration",
-    element: <RegistrationForm />,
+    element: (
+      <ProtectedRoute element={<RegistrationForm/>} />
+    )
   },
+  {
+    path : '/signup',
+    element : <Signup/>
+  },
+  {
+    path : '/login',
+    element : <Login/>
+  }
 ]);
 function App() {
   return (
