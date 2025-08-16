@@ -6,7 +6,7 @@ function ProtectedRoute({ element }) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:8000/auth/check", {
+    fetch("https://mpl-backend-ct21.onrender.com/auth/check", {
       credentials: "include",
     })
       .then((res) => res.json())

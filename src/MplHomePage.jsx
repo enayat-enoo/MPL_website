@@ -13,6 +13,7 @@ function MplHomePage() {
 
   useEffect(() => {
     fetch("https://mpl-backend-ct21.onrender.com/auth/check", {
+      method: "GET",
       credentials: "include",
     })
       .then((res) => {
