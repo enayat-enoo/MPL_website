@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
 
 function RegistrationForm() {
 
@@ -9,11 +10,16 @@ function RegistrationForm() {
   const [mohallaName, setMohallaName] = useState('');
   const [role, setRole] = useState('')
 
+  const notify=()=>toast("Alert all fields are mandatory")
+  const playerNotify=()=>toast("Player added successfully")
+  const registeredUserNotify=()=>toast("Already registerd")
+  const errorNotify=()=>toast("Some error has occured please try again")
+
   const navigate = useNavigate()
   async function submitHandler(e){
     e.preventDefault();
     if(!name || !number || !mohallaName || !role){
-      alert("All fields are mandatory")
+      notify();
       return;
     }
 
@@ -26,13 +32,13 @@ function RegistrationForm() {
     })
     const data = await result.json();
     if(data.message){
-      alert("Player added successfully")
+      playerNotify();
       navigate('/')
     }else if(!data.message){
-        alert("Already registered")
+        registeredUserNotify();
         navigate('/registration')
     }else{
-      alert("Some error has occured please try again")
+        errorNotify();
         navigate('/registration')
     }
   }
@@ -120,6 +126,7 @@ function RegistrationForm() {
           Submit
         </button>
       </form>
+      <ToastContainer position="top-center"/>
     </div>
   );
 }

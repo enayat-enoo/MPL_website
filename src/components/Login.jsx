@@ -1,16 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const notify=()=>toast("All fields are mandatory")
+  const alertUser=()=>toast("Username or password is incorrect")
 
   const navigate = useNavigate();
   async function submitHandler(e) {
     e.preventDefault();
     if (!email || !password) {
-      alert("All the fields are mandatory");
+      notify()
       return;
     }
 
@@ -23,7 +26,7 @@ function Login() {
       credentials: "include",
     });
     const data = await result.json();
-    if(data.error) alert("No user found")
+    if(data.error) alertUser();
     if (data.login) {
       navigate("/");
     } else {
@@ -73,6 +76,7 @@ function Login() {
           Signup
         </button>
       </div>
+      <ToastContainer position="top-center"/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
  
 function Signup() {
   const [name, setName] = useState("");
@@ -8,11 +9,15 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  
+  const alertNotify=()=>toast("Alert all fields are mandatory")
+  const errorNotify=()=>("There is some issue please try again")
+  const loginNotify=()=>("Signed up successfully!! Please login now with the same credentials")
 
   async function submitHandler(e) {
     e.preventDefault();
     if (!name || !email || !username || !password) {
-      alert("Please fill all the fields");
+      alertNotify();
       return;
     }
     const result = await fetch("https://mpl-backend-ct21.onrender.com/signup", {
@@ -25,10 +30,11 @@ function Signup() {
     const data = await result.json();
     console.log(data)
     if (data.signup) {
+      loginNotify()
       navigate('/login');
     } else {
       navigate('/signup');
-      alert("Error while creating your account");
+      errorNotify();
     }
   }
 
@@ -95,6 +101,7 @@ function Signup() {
           </button>
         </form>
       </div>
+      <ToastContainer position="top-center"/>
     </div>
   );
 }
