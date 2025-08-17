@@ -1,6 +1,9 @@
 # 🏏 MPL – Inter Village Cricket League Website
 
-    A Full-Stack Web Application for managing   inter-village cricket tournaments. Built   with React, Node.js, Express, and MongoDB,   this platform allows users to view teams,   upcoming matches, player details, and   register new players with authentication.
+    A full-stack web application for managing inter-village cricket tournaments. 
+    Built with React, Node.js, Express, and MongoDB, this platform enables users 
+    to view teams, upcoming matches, player details, and register new players 
+    with authentication.
 
 ## Live Demo
 
