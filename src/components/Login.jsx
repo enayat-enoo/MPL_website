@@ -7,8 +7,8 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const notify=()=>toast("All fields are mandatory")
-  const alertUser=()=>toast("Username or password is incorrect")
-  // const newUser=()=>toast("")
+  const alertUser=()=>toast("User doesn't exist please register first")
+  const incorrectPasswordNotify=()=>toast("Username or password is incorrect")
 
   const navigate = useNavigate();
   async function submitHandler(e) {
@@ -28,6 +28,7 @@ function Login() {
     });
     const data = await result.json();
     if(data.error) alertUser();
+    if(data.incorrectPassword) incorrectPasswordNotify();
     if (data.login) {
       navigate("/");
     } else {

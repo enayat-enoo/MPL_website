@@ -13,6 +13,7 @@ function Signup() {
   const alertNotify=()=>toast("Alert all fields are mandatory")
   const errorNotify=()=>("There is some issue please try again")
   const loginNotify=()=>("Signed up successfully!! Please login now with the same credentials")
+  const passwordLengthNotify=()=>toast("Password should contain of minimum 8 characters")
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -20,6 +21,7 @@ function Signup() {
       alertNotify();
       return;
     }
+    if(password.length<=8) passwordLengthNotify();
     const result = await fetch("https://mpl-backend-ct21.onrender.com/signup", {
       method: "POST",
       headers: {
@@ -90,6 +92,7 @@ function Signup() {
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              minLength={8}
             />
           </div>
 
