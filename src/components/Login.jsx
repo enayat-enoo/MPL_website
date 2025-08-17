@@ -31,7 +31,6 @@ function Login() {
     if (data.login) {
       navigate("/");
     } else {
-      alertUser()
       navigate("/login");
     }
   }
