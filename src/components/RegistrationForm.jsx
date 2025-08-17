@@ -32,14 +32,14 @@ function RegistrationForm() {
     })
     const data = await result.json();
     if(data.message){
-      playerNotify();
       navigate('/')
+      playerNotify();
     }else if(!data.message){
+        navigate('/registration')
         registeredUserNotify();
-        navigate('/registration')
     }else{
-        errorNotify();
         navigate('/registration')
+        errorNotify();
     }
   }
 

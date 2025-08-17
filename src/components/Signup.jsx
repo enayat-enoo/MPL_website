@@ -14,6 +14,7 @@ function Signup() {
   const errorNotify=()=>("There is some issue please try again")
   const loginNotify=()=>("Signed up successfully!! Please login now with the same credentials")
   const passwordLengthNotify=()=>toast("Password should contain of minimum 8 characters")
+  const userExistNotify=()=>toast("Username Already exist's")
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -30,7 +31,7 @@ function Signup() {
       body: JSON.stringify({ name, email, username, password }),
     });
     const data = await result.json();
-    console.log(data)
+    if(data.userName) userExistNotify();
     if (data.signup) {
       loginNotify()
       navigate('/login');
@@ -76,7 +77,7 @@ function Signup() {
             <input
               type="text"
               name="username"
-              placeholder="Choose a username"
+              placeholder="Enter your username"
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
