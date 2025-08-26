@@ -7,6 +7,7 @@ import "./App.css";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ProtectedRoute from "../ProtectedRoute";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -39,6 +40,7 @@ function App() {
     <>
       <Header />
       <RouterProvider router={router} />
+      <ToastContainer/>
     </>
   );
 }

@@ -1,8 +1,9 @@
 import React from "react";
 
+const API_URL = import.meta.env.VITE_API_URL;
 function Logout({setUserLoggedIn}) {
     async function logoutHandler(){
-        const log = await fetch('https://mpl-backend-ct21.onrender.com/logout',{
+        const log = await fetch(`${API_URL}/logout`,{
             credentials: 'include'
         });
 

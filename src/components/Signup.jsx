@@ -1,20 +1,24 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer,toast } from "react-toastify";
- 
+import { ToastContainer, toast } from "react-toastify";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  
-  const alertNotify=()=>toast("Alert all fields are mandatory")
-  const errorNotify=()=>("There is some issue please try again")
-  const loginNotify=()=>("Signed up successfully!! Please login now with the same credentials")
-  const passwordLengthNotify=()=>toast("Password should contain of minimum 8 characters")
-  const userExistNotify=()=>toast("Username Already exist's")
+
+  const alertNotify = () => toast("Alert all fields are mandatory");
+  const errorNotify = () => toast("There is some issue please try again");
+  const loginNotify = () =>
+    toast("Signed up successfully!! Please login now with the same credentials");
+  const passwordLengthNotify = () =>
+    toast("Password should contain of minimum 8 characters");
+  const userExistNotify = () => toast("Username Already exist's");
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -22,8 +26,11 @@ function Signup() {
       alertNotify();
       return;
     }
-    if(password.length<=8) passwordLengthNotify();
-    const result = await fetch("https://mpl-backend-ct21.onrender.com/signup", {
+    if (password.length < 8){
+      passwordLengthNotify();
+      return;
+    }
+    const result = await fetch(`${API_URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,13 +38,14 @@ function Signup() {
       body: JSON.stringify({ name, email, username, password }),
     });
     const data = await result.json();
-    if(data.userName) userExistNotify();
+    console.log(data);
+    if (data.userName) userExistNotify();
     if (data.signup) {
-      loginNotify()
-      navigate('/login');
+      loginNotify();
+      setTimeout(() => navigate("/login"), 1000);
     } else {
-      navigate('/signup');
       errorNotify();
+      setTimeout(() => navigate("/signup"), 1000);
     }
   }
 
@@ -105,7 +113,7 @@ function Signup() {
           </button>
         </form>
       </div>
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
     </div>
   );
 }

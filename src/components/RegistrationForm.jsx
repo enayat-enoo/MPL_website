@@ -1,45 +1,47 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function RegistrationForm() {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState(0);
+  const [mohallaName, setMohallaName] = useState("");
+  const [role, setRole] = useState("");
 
-  const [name,setName] = useState('');
-  const [number,setNumber] = useState(0)
-  const [mohallaName, setMohallaName] = useState('');
-  const [role, setRole] = useState('')
+  const notify = () => toast("Alert all fields are mandatory");
+  const playerNotify = () => toast("Player added successfully");
+  const registeredUserNotify = () => toast("Already registerd");
+  const errorNotify = () => toast("Some error has occured please try again");
 
-  const notify=()=>toast("Alert all fields are mandatory")
-  const playerNotify=()=>toast("Player added successfully")
-  const registeredUserNotify=()=>toast("Already registerd")
-  const errorNotify=()=>toast("Some error has occured please try again")
-
-  const navigate = useNavigate()
-  async function submitHandler(e){
+  const navigate = useNavigate();
+  async function submitHandler(e) {
     e.preventDefault();
-    if(!name || !number || !mohallaName || !role){
+    if (!name || !number || !mohallaName || !role) {
       notify();
       return;
     }
 
-    const result = await fetch('https://mpl-backend-ct21.onrender.com/',{
-      method : "POST",
+    const result = await fetch(API_URL, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body : JSON.stringify({name,number,mohallaName,role})
-    })
+      body: JSON.stringify({ name, number, mohallaName, role }),
+    });
     const data = await result.json();
-    if(data.message){
-      navigate('/')
+    if(data.missingRequiredFields) notify();
+    if (data.registration) {
       playerNotify();
-    }else if(!data.message){
-        navigate('/registration')
-        registeredUserNotify();
-    }else{
-        navigate('/registration')
-        errorNotify();
+      setTimeout(() => navigate("/"), 1500);
+    } else if (data.databaseError) {
+      registeredUserNotify();
+      setTimeout(() => navigate("/registration"), 1500);
+    } else {
+      errorNotify();
+      setTimeout(() => navigate("/registartion"), 1500);
     }
   }
 
@@ -56,7 +58,7 @@ function RegistrationForm() {
             type="text"
             placeholder="Enter your full name"
             name="name"
-            onChange={(e)=>setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
           />
         </div>
@@ -67,7 +69,7 @@ function RegistrationForm() {
           <input
             type="number"
             name="number"
-            onChange={(e)=>setNumber(e.target.value)}
+            onChange={(e) => setNumber(e.target.value)}
             placeholder="Enter mobile number"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
           />
@@ -79,7 +81,7 @@ function RegistrationForm() {
           <input
             type="text"
             name="mohallaName"
-            onChange={(e)=>setMohallaName(e.target.value)}
+            onChange={(e) => setMohallaName(e.target.value)}
             placeholder=""
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
           />
@@ -91,7 +93,7 @@ function RegistrationForm() {
               <input
                 type="radio"
                 name="role"
-                onChange={(e)=>setRole(e.target.value)}
+                onChange={(e) => setRole(e.target.value)}
                 value="Batsman"
                 className="text-cyan-500 focus:ring-cyan-400"
               />
@@ -101,7 +103,7 @@ function RegistrationForm() {
               <input
                 type="radio"
                 name="role"
-                onChange={(e)=>setRole(e.target.value)}
+                onChange={(e) => setRole(e.target.value)}
                 value="Bowler"
                 className="text-cyan-500 focus:ring-cyan-400"
               />
@@ -111,7 +113,7 @@ function RegistrationForm() {
               <input
                 type="radio"
                 name="role"
-                onChange={(e)=>setRole(e.target.value)}
+                onChange={(e) => setRole(e.target.value)}
                 value="Allrounder"
                 className="text-cyan-500 focus:ring-cyan-400"
               />
@@ -126,7 +128,7 @@ function RegistrationForm() {
           Submit
         </button>
       </form>
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
     </div>
   );
 }

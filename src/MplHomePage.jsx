@@ -5,14 +5,20 @@ import { useState } from "react";
 import { useEffect } from "react";
 import UserLogin from "./components/UserLogin";
 import Logout from "./components/Logout";
+import { useNavigate } from "react-router-dom";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 function MplHomePage() {
   const [teams, setTeams] = useState([]);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    fetch("https://mpl-backend-ct21.onrender.com/auth/check", {
+    fetch(`${API_URL}/auth/check`, {
       method: "GET",
       credentials: "include",
     })
@@ -27,7 +33,7 @@ function MplHomePage() {
   }, []);
 
   useEffect(() => {
-    fetch("https://mpl-backend-ct21.onrender.com")
+    fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setTeams(data));
   }, []);
@@ -97,18 +103,34 @@ function MplHomePage() {
           <PointsTable />
         </div>
       </div>
-      {userLoggedIn ? (
-        <Logout setUserLoggedIn={setUserLoggedIn} />
-      ) : (
-        <UserLogin />
-      )}
+      <div className="flex flex-wrap w-full gap-4 justify-center mt-6">
+        <div>
+          {userLoggedIn ? (
+            <Logout setUserLoggedIn={setUserLoggedIn} />
+          ) : (
+            <UserLogin />
+          )}
+        </div>
+        <div>
+          {!userLoggedIn && (
+            <button
+              className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+              onClick={() => navigate("/signup")}
+            >
+              Signup
+            </button>
+          )}
+        </div>
+        {userLoggedIn ?
+        <div>
       <NavLink
         to="/registration"
         className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
       >
         Get Yourself registered for the upcoming season!!!
       </NavLink>
-
+      </div> : " "}
+      </div>
       <div className="mt-4 bg-gradient-to-r from-yellow-200 via-yellow-100 to-yellow-200 text-yellow-900 py-3 px-4 rounded-md shadow text-center text-base font-semibold tracking-wide">
         📢 Stay tuned! Match results & announcements will appear here.
       </div>

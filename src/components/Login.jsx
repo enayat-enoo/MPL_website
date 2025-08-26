@@ -1,24 +1,26 @@
 import React from "react";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const notify=()=>toast("All fields are mandatory")
-  const alertUser=()=>toast("User doesn't exist please register first")
-  const incorrectPasswordNotify=()=>toast("Password is incorrect")
+  const notify = () => toast("All fields are mandatory");
+  const alertUser = () => toast("User doesn't exist please register first");
+  const incorrectPasswordNotify = () => toast("Password is incorrect");
 
   const navigate = useNavigate();
   async function submitHandler(e) {
     e.preventDefault();
     if (!email || !password) {
-      notify()
+      notify();
       return;
     }
 
-    const result = await fetch("https://mpl-backend-ct21.onrender.com/login", {
+    const result = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,9 +29,10 @@ function Login() {
       credentials: "include",
     });
     const data = await result.json();
-    if(data.error) alertUser();
-    if(data.incorrectPassword) incorrectPasswordNotify();
+    if (data.error) alertUser();
+    if (data.incorrectPassword) incorrectPasswordNotify();
     if (data.login) {
+      console.log("Login successful");
       navigate("/");
     } else {
       navigate("/login");
@@ -73,12 +76,14 @@ function Login() {
           </button>
         </form>
         <br />
-        <button className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-200"
-        onClick={()=>navigate('/signup')}>
+        <button
+          className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-200"
+          onClick={() => navigate("/signup")}
+        >
           Signup
         </button>
       </div>
-      <ToastContainer position="top-center"/>
+      <ToastContainer position="top-center" />
     </div>
   );
 }

@@ -6,10 +6,10 @@ function ProtectedRoute({ element }) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch("https://mpl-backend-ct21.onrender.com/auth/check", {
+    fetch(`${API_URL}/auth/check`, {
       credentials: "include",
     })
       .then((res) => res.json())

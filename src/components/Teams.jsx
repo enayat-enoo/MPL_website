@@ -3,12 +3,15 @@ import { useParams } from "react-router-dom";
 import Navigations from "./Navigations";
 import PageNotFound from "../pages/PageNotFound";
 
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Teams() {
   const [team, setTeam] = useState(null);
   const { teamId } = useParams();
 
   useEffect(() => {
-    fetch("https://mpl-backend-ct21.onrender.com")
+    fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setTeam(data.find((team) => team.id === teamId)))
       .catch((error) => console.error("Error fetching data:", error));
