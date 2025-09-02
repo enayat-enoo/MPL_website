@@ -8,7 +8,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ProtectedRoute from "../ProtectedRoute";
 import { ToastContainer } from "react-toastify";
-import UpdateScore from "./components/updateScore";
+import UpdateScore from "./components/UpdateScore";
 import ScoreBoard from "./components/ScoreBoard";
 
 
