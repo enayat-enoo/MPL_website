@@ -121,6 +121,22 @@ function MplHomePage() {
             </button>
           )}
         </div>
+        <div>
+          <button
+              className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+              onClick={() => navigate("/updatescore")}
+            >
+              Update Score
+            </button>
+        </div>
+        <div>
+          <button
+              className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+              onClick={() => navigate("/score")}
+            >
+              Live Score
+            </button>
+        </div>
         {userLoggedIn ?
         <div>
       <NavLink

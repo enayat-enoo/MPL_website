@@ -8,6 +8,8 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ProtectedRoute from "../ProtectedRoute";
 import { ToastContainer } from "react-toastify";
+import UpdateScore from "./components/updateScore";
+import ScoreBoard from "./components/ScoreBoard";
 
 
 
@@ -33,6 +35,16 @@ let router = createBrowserRouter([
   {
     path : '/login',
     element : <Login/>
+  },
+  {
+    path : '/updateScore',
+    element : (
+      <ProtectedRoute element={<UpdateScore/>} />
+    )
+  },
+  {
+    path : '/score',
+    element : <ScoreBoard/>
   }
 ]);
 function App() {
