@@ -11,15 +11,14 @@ const ScoreBoard = () => {
   const [ball, setBall] = useState(0);
   const [over, setOver] = useState(0);
 
-  useEffect(() => {
-    
-    socket.on("score", (data) => {
-      console.log(data);
-      setRuns(()=>data.runs); 
-      setOver(()=>data.overs);
-      setWickets(()=>data.wickets);
-      setBall(()=>data.balls);
-    });
+ useEffect(() => {
+  socket.on("score", (data) => {
+    console.log(data);
+    setRuns(data.runs); 
+    setOver(data.Overs);
+    setWickets(data.wickets);
+    setBall(data.balls);
+  });
 
    
     return () => {

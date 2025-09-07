@@ -9,6 +9,11 @@
 
 [Frontend](https://mpl-website.vercel.app)
 
+## Admin Id for Demo
+
+Email: johndoe@gmail.com
+Password: John@123
+
 # 🚀 Features
 
 - 📋 Team & Player Management – View teams and players dynamically.
