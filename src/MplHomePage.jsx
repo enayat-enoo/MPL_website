@@ -9,9 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-
 function MplHomePage() {
   const [teams, setTeams] = useState([]);
+  const [fixtures, setFixtures] = useState([]);
+
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -32,6 +33,14 @@ function MplHomePage() {
       .catch((error) => console.error("Error:", error));
   }, []);
 
+  useEffect(() => {
+    fetch(`${API_URL}/matchdetails`, {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((data) => data.json())
+      .then((team) => setFixtures(team.matchData || []));
+  }, []);
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -67,32 +76,15 @@ function MplHomePage() {
             Upcoming Fixtures
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <FixtureCard
-              team={"Team A"}
-              opponent={"Team B"}
-              date={""}
-              link={
-                "https://cricheroes.com/scorecard/18219817/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-super-kings-vs-maskedih-mavericks/upcoming"
-              }
-            />
-            <br />
-            <FixtureCard
-              team={"Team C"}
-              opponent={"Team D"}
-              date={""}
-              link={
-                "https://cricheroes.com/scorecard/18219818/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/maskedih-warriors-vs-rsi-xi/upcoming"
-              }
-            />
-            <br />
-            <FixtureCard
-              team={"Team E"}
-              opponent={"Team F"}
-              date={""}
-              link={
-                "https://cricheroes.com/scorecard/18219816/-maskedih-premier-league-season-08-sponsors-by-good-dream-public-school-/zulfiqar-strikers-vs-baadshah-xi/live"
-              }
-            />
+            {fixtures.map((match, index) => (
+              <FixtureCard
+                key={index}
+                team={match.firstTeam}
+                opponent={match.secondTeam}
+                date={match.date}
+                matchid={match._id}
+              />
+            ))}
           </div>
         </div>
 
@@ -123,29 +115,24 @@ function MplHomePage() {
         </div>
         <div>
           <button
-              className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
-              onClick={() => navigate("/updatescore")}
-            >
-              Update Score
-            </button>
+            className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+            onClick={() => navigate("/matchpreview")}
+          >
+            Update Score
+          </button>
         </div>
-        <div>
-          <button
+        {userLoggedIn ? (
+          <div>
+            <NavLink
+              to="/registration"
               className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
-              onClick={() => navigate("/score")}
             >
-              Live Score
-            </button>
-        </div>
-        {userLoggedIn ?
-        <div>
-      <NavLink
-        to="/registration"
-        className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
-      >
-        Get Yourself registered for the upcoming season!!!
-      </NavLink>
-      </div> : " "}
+              Player Registration!!!
+            </NavLink>
+          </div>
+        ) : (
+          " "
+        )}
       </div>
       <div className="mt-4 bg-gradient-to-r from-yellow-200 via-yellow-100 to-yellow-200 text-yellow-900 py-3 px-4 rounded-md shadow text-center text-base font-semibold tracking-wide">
         📢 Stay tuned! Match results & announcements will appear here.

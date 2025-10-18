@@ -1,51 +1,29 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 
 const API_URL = import.meta.env.VITE_API_URL;
 let socket; // define outside to avoid multiple connections
 
 const UpdateScore = () => {
-  const [score, setScore] = useState(0);
-  const [over, setOver] = useState(0);
-  const [ball, setBall] = useState(1);
+  const [score, setScore] = useState(null);
   const scores = [0, 1, 2, 3, 4, 5, 6];
 
+  const { matchId } = useParams();
+
   useEffect(() => {
+    if (!matchId) return;
     socket = io(API_URL);
-
-
-     socket.on("score", (data) => {
-      console.log("Received score:", data);
-      setScore(data.runs);
-      setOver(data.Overs);
-      setBall(data.balls);
-    });
-
     return () => {
-      socket.disconnect(); 
+      socket.disconnect();
     };
-  }, []);
+  }, [matchId]);
 
   function scoreHandler(e) {
     const run = Number(e.target.value);
-
-    let newBall = ball + 1;
-    let newOver = over;
-
-    if (newBall === 7) {
-      newOver = over + 1;
-      newBall = 1;
-    }
-    setScore(() => run); 
-    setBall(newBall);
-    setOver(newOver);
-
-    const data = {
-      runs: run,
-      over: newOver,
-      balls: ball==6 ? 0 : ball,
-    };
-    socket.emit("score", data); 
+    setScore(run);
+  
+    socket.emit("score", { matchId, run });
   }
 
   return (

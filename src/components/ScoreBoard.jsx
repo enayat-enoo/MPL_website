@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
+import { useParams } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL
-
-const socket = io(API_URL);
 
 const ScoreBoard = () => {
   const [runs, setRuns] = useState(0);
@@ -11,11 +10,19 @@ const ScoreBoard = () => {
   const [ball, setBall] = useState(0);
   const [over, setOver] = useState(0);
 
+  const {matchId} = useParams();
+
  useEffect(() => {
-  socket.on("score", (data) => {
-    console.log(data);
+
+  if(!matchId) return;
+
+  const socket = io(API_URL);
+  socket.emit('joinMatch', {matchId});
+
+  socket.on("liveScore", (data) => {
+    console.log(data)
     setRuns(data.runs); 
-    setOver(data.Overs);
+    setOver(data.overs);
     setWickets(data.wickets);
     setBall(data.balls);
   });
@@ -24,7 +31,7 @@ const ScoreBoard = () => {
     return () => {
       socket.off("score");
     };
-  }, []); 
+  }, [matchId,runs,wicket,ball,over]); 
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">

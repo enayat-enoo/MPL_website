@@ -10,7 +10,8 @@ import ProtectedRoute from "../ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import UpdateScore from "./components/UpdateScore";
 import ScoreBoard from "./components/ScoreBoard";
-
+import CreateMatch from "./components/CreateMatch";
+import MatchPreview from "./components/MatchPreview";
 
 
 let router = createBrowserRouter([
@@ -37,14 +38,22 @@ let router = createBrowserRouter([
     element : <Login/>
   },
   {
-    path : '/updateScore',
+    path : '/createMatch',
+    element : <CreateMatch/>
+  },
+  {
+    path : '/score/:matchId',
+    element : <ScoreBoard/>
+  },
+  {
+    path : 'matchpreview',
     element : (
-      <ProtectedRoute element={<UpdateScore/>} />
+      <ProtectedRoute element={<MatchPreview/>}/>
     )
   },
   {
-    path : '/score',
-    element : <ScoreBoard/>
+    path : '/updatescore/:matchId',
+    element : <UpdateScore/>
   }
 ]);
 function App() {
