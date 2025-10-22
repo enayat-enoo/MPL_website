@@ -10,7 +10,7 @@ import ProtectedRoute from "../ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import UpdateScore from "./components/UpdateScore";
 import ScoreBoard from "./components/ScoreBoard";
-import CreateMatch from "./components/CreateMatch";
+import ScheduleMatch from "./components/ScheduleMatch";
 import MatchPreview from "./components/MatchPreview";
 
 
@@ -38,8 +38,8 @@ let router = createBrowserRouter([
     element : <Login/>
   },
   {
-    path : '/createMatch',
-    element : <CreateMatch/>
+    path : '/scheduleMatch',
+    element : <ScheduleMatch/>
   },
   {
     path : '/score/:matchId',

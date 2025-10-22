@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const CreateMatch = () => {
+const ScheduleMatch = () => {
   const [team1, setTeam1] = useState("");
   const [team2, setTeam2] = useState("");
   const [date, setDate] = useState("");
+
+  const navigate = useNavigate();
+  const matchScheduleToast = () => toast("Match scheduled successfully",{
+    position: "top-center",
+    autoClose: 1000
+  });
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -23,7 +31,10 @@ const CreateMatch = () => {
       credentials: "include",
     })
       .then((data) => data.json())
-      .then((val) => console.log(val));
+      .then(()=>{
+        matchScheduleToast();
+        setTimeout(() => navigate("/"), 1500);
+      });
   }
 
   return (
@@ -81,4 +92,4 @@ const CreateMatch = () => {
   );
 };
 
-export default CreateMatch;
+export default ScheduleMatch;

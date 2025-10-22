@@ -113,14 +113,31 @@ function MplHomePage() {
             </button>
           )}
         </div>
-        <div>
-          <button
-            className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
-            onClick={() => navigate("/matchpreview")}
-          >
-            Update Score
-          </button>
-        </div>
+        {userLoggedIn ? (
+          <div>
+            <button
+              className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+              onClick={() => navigate("/matchpreview")}
+            >
+              Update Score
+            </button>
+          </div>
+        ) : (
+          " "
+        )}
+
+        {userLoggedIn ? (
+          <div>
+            <NavLink
+              to="/schedulematch"
+              className="inline-block w-full text-center bg-cyan-500 text-white font-semibold m-3 px-6 py-4 rounded-lg shadow-md hover:bg-cyan-600 hover:shadow-lg transition duration-300"
+            >
+              Schedule Match
+            </NavLink>
+          </div>
+        ) : (
+          " "
+        )}
         {userLoggedIn ? (
           <div>
             <NavLink

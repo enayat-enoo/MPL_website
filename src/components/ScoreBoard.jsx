@@ -9,6 +9,8 @@ const ScoreBoard = () => {
   const [wicket, setWickets] = useState(0);
   const [ball, setBall] = useState(0);
   const [over, setOver] = useState(0);
+  const [team1, setTeam1] = useState("");
+  const [team2, setTeam2] = useState("");
 
   const {matchId} = useParams();
 
@@ -25,6 +27,8 @@ const ScoreBoard = () => {
     setOver(data.overs);
     setWickets(data.wickets);
     setBall(data.balls);
+    setTeam1(data.team1);
+    setTeam2(data.team2);
   });
 
    
@@ -36,7 +40,9 @@ const ScoreBoard = () => {
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 text-center">
-        <h1 className="text-3xl font-bold text-blue-600 mb-4">🏏 Live Scoreboard</h1>
+        <h1 className="text-3xl font-bold text-blue-600 mb-4">
+          {team1} vs {team2}
+        </h1>
         <p className="text-2xl font-semibold text-gray-800">
           Runs: <span className="text-green-600">{runs}</span>
         </p>

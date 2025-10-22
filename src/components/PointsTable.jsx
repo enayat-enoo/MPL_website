@@ -4,6 +4,7 @@ function PointsTable() {
   return (
     <div>
       <table className="table-auto border-separate border-spacing-y-2 border-spacing-x-1.5 text-center">
+        <thead>
         <tr className="font-bold ">
           <td>Team</td>
           <td>M</td>
@@ -13,6 +14,8 @@ function PointsTable() {
           <td>NR</td>
           <td>Points</td>
         </tr>
+        </thead>
+        <tbody>
         <tr>
           <td>ZS</td>
           <td>4</td>
@@ -85,6 +88,7 @@ function PointsTable() {
           <td>0</td>
           <td>2</td>
         </tr>
+        </tbody>
       </table>
     </div>
   );
